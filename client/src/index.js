@@ -6,18 +6,18 @@ import Routes from './Routes';
 import GlobalStateProvider from './services/GlobalStateProvider';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { QueryClient, QueryClientProvider } from "react-query";
+import "codemirror/lib/codemirror.css";
+import "codemirror/theme/material.css";
 
 const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
     <GlobalStateProvider>
     <QueryClientProvider client={queryClient}>
         <Routes />
       </QueryClientProvider>
     </GlobalStateProvider>
-  </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

@@ -14,8 +14,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "codemirror": "^5.65.16",
     "cors": "^2.8.5",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "react-codemirror2": "^8.0.0"
   },
   "devDependencies": {
     "concurrently": "^8.2.2",
