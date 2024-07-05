@@ -54,14 +54,20 @@ code {
 
   .FormPane {
 
+    button {
+      font-weight: 600;
+    }
+
     .FormPane__header {
       font-size: 13px;
       font-weight: 600;
+      border-bottom: 1px solid black;
+      padding: 10px;
     }
 
     .FormPane__formGroup {
       background-color: #F2F3F4;
-      padding: 10px;
+      padding: 0px;
       border-radius: 5px;
       border: 1px solid #D7DBDD;
 
@@ -96,8 +102,13 @@ code {
       justify-content: space-between;
       width: 100%;
 
-      button {
-        font-weight: 600;
+      .PreviewPane__formGroup {
+        
+        select {
+          background-color: #fff;
+          color: #263238;
+          font-weight: 600;
+        }
       }
 
       .PreviewPane__control {

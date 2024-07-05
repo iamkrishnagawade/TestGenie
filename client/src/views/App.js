@@ -21,7 +21,7 @@ export default function App() {
                         "position": "relative"
                     }}>
                         <div className="Pane Pane1">
-                            <Container fluid>
+                            <Container>
                                 <Form className="FormPane">
                                     <Row className="FormPane__header mb-3">
                                         <Col>Data Type</Col>
@@ -95,7 +95,14 @@ export default function App() {
                             <div className="PreviewPane">
                                 <div className="PreviewPane__content">
                                     <div className="PreviewPane__topRow">
-                                        <Button variant="outline-light">JSON</Button>
+                                        <Form.Group className="PreviewPane__formGroup mb-3">
+                                            <Form.Select>
+                                                <option>JSON</option>
+                                                <option>CSV</option>
+                                                <option>SQL</option>
+                                                <option>XML</option>
+                                            </Form.Select>
+                                        </Form.Group>
                                         <div className="PreviewPane__control">
                                             <span>
                                                 <FontAwesomeIcon icon={faRotateRight} />
@@ -109,13 +116,13 @@ export default function App() {
                                         <CodeMirror
                                             value={JSON.stringify([
                                                 {
-                                                    "name": "Yvette Carlson",
-                                                    "phone": "(304) 528-3379",
-                                                    "email": "orci.donec.nibh@protonmail.com"
+                                                    name: "Yvette Carlson",
+                                                    phone: "(304) 528-3379",
+                                                    email: "orci.donec.nibh@protonmail.com"
                                                 }
                                             ])}
                                             options={{
-                                                mode: 'javascript',
+                                                mode: 'application/json',
                                                 theme: 'material',
                                                 lineNumbers: true
                                             }}
