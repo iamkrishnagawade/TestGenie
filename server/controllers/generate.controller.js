@@ -1,4 +1,3 @@
-
 // json responce
 exports.json = async (req, res) => {
     try {
