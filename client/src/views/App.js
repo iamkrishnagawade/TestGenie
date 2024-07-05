@@ -8,8 +8,20 @@ import { faRotateRight, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { Controlled as CodeMirror } from 'react-codemirror2';
 import "codemirror/mode/xml/xml";
 import "codemirror/mode/javascript/javascript";
+import { generateJson } from "../services/api";
+import { useQuery } from "react-query";
+import { useEffect, useState } from "react";
 
 export default function App() {
+    const [data, setData] = useState("");
+    const generateJsonApi = useQuery("data", generateJson);
+
+    useEffect(() => {
+        if (generateJsonApi.status === "success") {
+            setData(JSON.stringify(generateJsonApi.data, null, 2));
+        }
+    })
+
     return (
         <div className="App">
             <div className="App__content">
@@ -114,13 +126,7 @@ export default function App() {
                                     </div>
                                     <div className="PreviewPanel__preview">
                                         <CodeMirror
-                                            value={JSON.stringify([
-                                                {
-                                                    name: "Yvette Carlson",
-                                                    phone: "(304) 528-3379",
-                                                    email: "orci.donec.nibh@protonmail.com"
-                                                }
-                                            ])}
+                                            value={data}
                                             options={{
                                                 mode: 'application/json',
                                                 theme: 'material',
