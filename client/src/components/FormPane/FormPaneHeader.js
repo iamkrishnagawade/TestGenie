@@ -6,7 +6,7 @@ export default function FormPaneHeader() {
         <Row className="FormPane__header mb-3">
             <Col>Data Type</Col>
             <Col>Property Name</Col>
-            <Col>Example</Col>
+            <Col>Examples</Col>
             <Col>Options</Col>
             <Col>Actions</Col>
         </Row>

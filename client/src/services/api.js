@@ -5,7 +5,17 @@ const client = axios.create({
 });
 
 const generateJson = async () => {
-    const res = await client.post("/generate/json");
+    const res = await client.post("/generate/json", {
+        "fields": [
+            {
+                "dataType": "name",
+                "propName": "name",
+                "examples": [],
+                "options": []
+            }
+        ],
+        "count": 10
+    });
     return res.data;
 }
 
