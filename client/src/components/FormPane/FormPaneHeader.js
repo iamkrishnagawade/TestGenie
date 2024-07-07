@@ -8,6 +8,7 @@ export default function FormPaneHeader() {
             <Col>Property Name</Col>
             <Col>Example</Col>
             <Col>Options</Col>
+            <Col>Actions</Col>
         </Row>
     )
 }

@@ -1,6 +1,27 @@
 import { createContext, useReducer } from "react";
  
-const defaultGlobalState = {};
+const defaultGlobalState = {
+    dataType: [
+        {
+            title: "Name",
+            propertyName: "name"
+        },
+        {
+            title: "Phone",
+            propertyName: "phone"
+        },
+        {
+            title: "Email",
+            propertyName: "email"
+        },
+    ],
+    previewMode: [
+        {
+            name: "JSON",
+            mode: "application/json"
+        }
+    ]
+};
 
 const globalStateContext = createContext(defaultGlobalState);
 const dispatchStateContext = createContext(undefined);
