@@ -4,29 +4,10 @@ const client = axios.create({
     baseURL: "/api/v1"
 });
 
-const generateJson = async () => {
-    const res = await client.post("/generate/json", {
-        "fields": [
-            {
-                "dataType": "name",
-                "propName": "name",
-                "examples": [],
-                "options": []
-            },
-            {
-                "dataType": "phone",
-                "propName": "phone",
-            },
-            {
-                "dataType": "email",
-                "propName": "email",
-                "examples": {
-                    "provider": "google.com"
-                }
-            }
-        ],
-        "count": 10
-    });
+const generateJson = async (body) => {
+    console.log(body);
+    
+    const res = await client.post("/generate/json", body);
     return res.data;
 }
 

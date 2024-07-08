@@ -50,7 +50,7 @@ code {
 .Pane1 {
   padding: 30px 30px;
   width: 100%;
-  overflow: hidden;
+  overflow: auto;
 
   .FormPane {
 
@@ -104,10 +104,15 @@ code {
 
       .PreviewPane__formGroup {
         
-        select {
+        select,
+        input {
           background-color: #fff;
           color: #263238;
           font-weight: 600;
+        }
+
+        input {
+          width: 40%;
         }
       }
 

@@ -6,13 +6,22 @@ import { PreviewPane, FormPane } from "../components";
 export default function App() {
     const [data, setData] = useState("");
     const [formRow, setFormRow] = useState([{}]);
-    const generateJsonApi = useQuery("data", generateJson);
+    const [mode, setMode] = useState("json");
+    const [count, setCount] = useState(10);
+    const {data: queryData, status, refetch } = useQuery("data", () => generateJson({
+        fields: formRow,
+        count: count
+    }));
 
     useEffect(() => {
-        if (generateJsonApi.status === "success") {
-            setData(JSON.stringify(generateJsonApi.data, null, 2));
+        if (status === "success") {
+            setData(JSON.stringify(queryData, null, 2));
         }
-    }, [generateJsonApi.status]);
+    }, [status, queryData]);
+
+    useEffect(() => {
+        refetch();
+      }, [formRow, refetch]);
 
     const addFormPaneRow = () => {
         setFormRow([...formRow, {}]);
@@ -62,7 +71,7 @@ export default function App() {
 
         newFromRow[index] = {
             ...newFromRow[index],
-            option: value
+            options: value
         }
 
         newFromRow[index] = {
@@ -99,7 +108,7 @@ export default function App() {
                             />
                         </div>
                         <div className="Pane Pane2">
-                            <PreviewPane data={data} />
+                            <PreviewPane data={data} mode={mode} count={count} />
                         </div>
                     </div>
                 </div>

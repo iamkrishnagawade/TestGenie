@@ -18,6 +18,7 @@ const defaultGlobalState = {
     previewMode: [
         {
             name: "JSON",
+            value: "json",
             mode: "application/json"
         }
     ]
