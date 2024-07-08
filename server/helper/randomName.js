@@ -21,7 +21,7 @@ const randomName = (examples, options) => {
         case "fullname":
             return _fullName(examples);
         default:
-            return;
+            return _fullName(examples);
     }
 }
 

@@ -4,7 +4,7 @@ import FormPaneHeader from './FormPaneHeader';
 import FormPaneRow from './FormPaneRow';
 import FormPaneAddRow from './FormPaneAddRow';
 
-export default function FormPane({formRow, addFormPaneRow, handleFormRowChange, removeFormPaneRow}) {
+export default function FormPane({formRow, addFormPaneRow, handleFormRowChange, removeFormPaneRow, handleFormRowExampleChange, handleFormRowOptionChange}) {
     return (
         <Container>
             <Form className="FormPane">
@@ -17,6 +17,8 @@ export default function FormPane({formRow, addFormPaneRow, handleFormRowChange, 
                         propName={e.propName}
                         handleFormRowChange={(e) => handleFormRowChange(e, index)}
                         removeFormPaneRow={removeFormPaneRow}
+                        handleFormRowExampleChange={handleFormRowExampleChange}
+                        handleFormRowOptionChange={handleFormRowOptionChange}
                     />
                     )
                 }

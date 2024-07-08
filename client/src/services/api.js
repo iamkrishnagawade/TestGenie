@@ -12,6 +12,17 @@ const generateJson = async () => {
                 "propName": "name",
                 "examples": [],
                 "options": []
+            },
+            {
+                "dataType": "phone",
+                "propName": "phone",
+            },
+            {
+                "dataType": "email",
+                "propName": "email",
+                "examples": {
+                    "provider": "google.com"
+                }
             }
         ],
         "count": 10

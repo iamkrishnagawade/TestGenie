@@ -14,8 +14,8 @@ const useGlobalState = () => [
     useContext(dispatchStateContext)
 ];
 
-export default function FormPaneRow({index, dataType, propName, handleFormRowChange, removeFormPaneRow}) {
-    const [state, dispatch] = useGlobalState(useGlobalState);
+export default function FormPaneRow({index, dataType, propName, handleFormRowChange, removeFormPaneRow, handleFormRowExampleChange, handleFormRowOptionChange}) {
+    const [state] = useGlobalState(useGlobalState);
     
     return (
         <Row>
@@ -35,10 +35,10 @@ export default function FormPaneRow({index, dataType, propName, handleFormRowCha
                 </Form.Group>
             </Col>
             <Col>
-                <FormPaneExample dataType={dataType} />
+                <FormPaneExample dataType={dataType} index={index} handleFormRowExampleChange={handleFormRowExampleChange} />
             </Col>
             <Col>
-                <FormPaneOption dataType={dataType} />
+                <FormPaneOption dataType={dataType} index={index} handleFormRowOptionChange={handleFormRowOptionChange} />
             </Col>
             <Col>
                 <Button variant="danger" onClick={() => removeFormPaneRow(index)}>

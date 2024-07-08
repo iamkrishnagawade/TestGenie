@@ -7,6 +7,7 @@ export default function App() {
     const [data, setData] = useState("");
     const [formRow, setFormRow] = useState([{}]);
     const generateJsonApi = useQuery("data", generateJson);
+
     useEffect(() => {
         if (generateJsonApi.status === "success") {
             setData(JSON.stringify(generateJsonApi.data, null, 2));
@@ -18,26 +19,60 @@ export default function App() {
     }
 
     const handleFormRowChange = (e, index) => {
-       const {name, value} = e.target;
-       let newFromRow = [...formRow];
-       
-       newFromRow[index] = {
-        ...newFromRow[index], 
-        [name]: value
-       }
+        const { name, value } = e.target;
+        let newFromRow = [...formRow];
 
-       if(name === "dataType") {
+        newFromRow[index] = {
+            ...newFromRow[index],
+            [name]: value
+        }
+
+        if (name === "dataType") {
             newFromRow[index] = {
-                ...newFromRow[index], 
+                ...newFromRow[index],
                 propName: value
-           }
-       }
+            }
+        }
 
-       setFormRow(newFromRow);
+        setFormRow(newFromRow);
+    }
+
+    const handleFormRowExampleChange = (e, index) => {
+        const { name, value } = e.target;
+        let newFromRow = [...formRow];
+
+        newFromRow[index] = {
+            ...newFromRow[index],
+            examples: {
+                ...newFromRow[index].examples,
+                [name]: value
+            }
+        }
+
+        newFromRow[index] = {
+            ...newFromRow[index],
+        }
+
+        setFormRow(newFromRow);
+    }
+
+    const handleFormRowOptionChange = (e, index) => {
+        const { value } = e.target;
+        let newFromRow = [...formRow];
+
+        newFromRow[index] = {
+            ...newFromRow[index],
+            option: value
+        }
+
+        newFromRow[index] = {
+            ...newFromRow[index],
+        }
+
+        setFormRow(newFromRow);
     }
 
     const removeFormPaneRow = (index) => {
-        console.log(index);
         setFormRow(prevState => {
             return prevState.filter((_, i) => i !== index);
         });
@@ -54,11 +89,13 @@ export default function App() {
                         "position": "relative"
                     }}>
                         <div className="Pane Pane1">
-                            <FormPane 
-                                formRow={formRow} 
+                            <FormPane
+                                formRow={formRow}
                                 addFormPaneRow={addFormPaneRow}
                                 handleFormRowChange={handleFormRowChange}
                                 removeFormPaneRow={removeFormPaneRow}
+                                handleFormRowExampleChange={handleFormRowExampleChange}
+                                handleFormRowOptionChange={handleFormRowOptionChange}
                             />
                         </div>
                         <div className="Pane Pane2">

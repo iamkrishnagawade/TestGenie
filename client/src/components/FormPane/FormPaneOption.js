@@ -1,12 +1,15 @@
 import Form from 'react-bootstrap/Form';
 
-export default function FormPaneOption({ dataType }) {
+export default function FormPaneOption({ dataType, index, handleFormRowOptionChange }) {
     switch (dataType) {
-        case "phone":
+        case "name":
             return (
                 <Form.Group className="FormPane__formGroup mb-3">
-                    <Form.Select>
-                        <option>Select...</option>
+                    <Form.Select onChange={(e) => handleFormRowOptionChange(e, index)}>
+                        <option value="">Options...</option>
+                        <option value="fullname">Full Name</option>
+                        <option value="firstname">First Name</option>
+                        <option value="lastname">Last Name</option>
                     </Form.Select>
                 </Form.Group>
             );
