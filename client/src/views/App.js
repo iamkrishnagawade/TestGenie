@@ -7,7 +7,7 @@ export default function App() {
     const [data, setData] = useState("");
     const [formRow, setFormRow] = useState([{}]);
     const [mode, setMode] = useState("json");
-    const [count, setCount] = useState(10);
+    const [count, setCount] = useState(5);
     const {data: queryData, status, refetch } = useQuery("data", () => generateJson({
         fields: formRow,
         count: count
@@ -87,6 +87,18 @@ export default function App() {
         });
     }
 
+    const handleCountChange = (e) => {
+        setCount(e.target.value);
+    }
+
+    const handleChangeMode = (e) => {
+        setMode(e.target.value);
+    }
+
+    const refetchQueryData = () => {
+        refetch();
+    }
+
     return (
         <div className="App">
             <div className="App__content">
@@ -108,7 +120,14 @@ export default function App() {
                             />
                         </div>
                         <div className="Pane Pane2">
-                            <PreviewPane data={data} mode={mode} count={count} />
+                            <PreviewPane 
+                                data={data} 
+                                mode={mode} 
+                                count={count} 
+                                handleCountChange={handleCountChange}
+                                handleChangeMode={handleChangeMode}
+                                refetchQueryData={refetchQueryData}
+                            />
                         </div>
                     </div>
                 </div>
