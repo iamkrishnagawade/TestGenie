@@ -5,7 +5,24 @@ import { PreviewPane, FormPane } from "../components";
 
 export default function App() {
     const [data, setData] = useState("");
-    const [formRow, setFormRow] = useState([{}]);
+    const [formRow, setFormRow] = useState([
+        {
+            dataType: "name",
+            propName: "name"
+        },
+        {
+            dataType: "phone",
+            propName: "phone"
+        },
+        {
+            dataType: "email",
+            propName: "email"
+        },
+        {
+            dataType: "address",
+            propName: "address"
+        }
+    ]);
     const [mode, setMode] = useState("json");
     const [count, setCount] = useState(5);
     const {data: queryData, status, refetch } = useQuery("data", () => generateJson({

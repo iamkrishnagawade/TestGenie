@@ -14,6 +14,10 @@ const defaultGlobalState = {
             title: "Email",
             propertyName: "email"
         },
+        {
+            title: "Address",
+            propertyName: "address"
+        }
     ],
     previewMode: [
         {
