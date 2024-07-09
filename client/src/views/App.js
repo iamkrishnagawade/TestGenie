@@ -36,9 +36,9 @@ export default function App() {
         }
     }, [status, queryData]);
 
-    useEffect(() => {
-        refetch();
-      }, [formRow, refetch]);
+    // useEffect(() => {
+    //     refetch();
+    //   }, [formRow, refetch]);
 
     const addFormPaneRow = () => {
         setFormRow([...formRow, {}]);

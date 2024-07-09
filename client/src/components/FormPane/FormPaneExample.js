@@ -14,8 +14,14 @@ export default function FormPaneExample({ dataType, index, handleFormRowExampleC
             );
         case "email":
             return (
-                <Form.Group className="FormPane__formGroup mb-3"  onChange={(e) => handleFormRowExampleChange(e, index)}>
-                    <Form.Control type="text" name="provider" placeholder='Provider' />
+                <Form.Group className="FormPane__formGroup mb-3" >
+                    <Form.Control type="text" name="provider" placeholder="Provider" onChange={(e) => handleFormRowExampleChange(e, index)} />
+                </Form.Group>
+            );
+        case "password":
+            return (
+                <Form.Group className="FormPane__formGroup mb-3">
+                    <Form.Control type="number" name="length" placeholder="Length" onChange={(e) => handleFormRowExampleChange(e, index)} />
                 </Form.Group>
             );
         default:

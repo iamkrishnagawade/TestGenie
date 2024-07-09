@@ -17,6 +17,14 @@ const defaultGlobalState = {
         {
             title: "Address",
             propertyName: "address"
+        },
+        {
+            title: "Username",
+            propertyName: "username"
+        },
+        {
+            title: "Password",
+            propertyName: "password"
         }
     ],
     previewMode: [

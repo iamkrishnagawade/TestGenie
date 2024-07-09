@@ -2,6 +2,8 @@ const randomName = require("./randomName");
 const randomPhoneNumber = require("./randomPhoneNumber");
 const randomEmail = require("./randomEmail");
 const randomAddress = require("./randomAddress");
+const randomUsername = require("./randomUsername");
+const randomPassword = require("./randomPassword");
 
 const generateData = (fields) => {
     const data = {};
@@ -22,6 +24,14 @@ const generateData = (fields) => {
 
             case "address":
                 data[field.propName] = randomAddress();
+                break;
+
+            case "username":
+                data[field.propName] = randomUsername();
+                break;
+
+            case "password":
+                data[field.propName] = randomPassword(field.examples);
                 break;
 
             default:
